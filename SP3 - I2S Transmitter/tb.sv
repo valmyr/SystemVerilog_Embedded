@@ -1,27 +1,16 @@
-`include"./I2S_Transmitter.sv"
 module tb;
-	parameter WIDTH = 8;
-	logic SerialData;
-	logic [2*WIDTH-1:0] LoadData;
-	logic SCK;
-	logic nreset;
-	logic WS;
-	logic Ready;
-	I2S_Transmitter #(.WIDTH(WIDTH))transmitter1(
-		.*
-	);
+	logic MCLK,nreset,SCLK,LRCLK,SD;
 
-	initial SCK = 0;
-	always #1 SCK = ~SCK;
+	I2Smodule #(.WIDTH(8), .RATIO(4)) U1(.*);
+
 	initial begin
+		MCLK = 0;
 		nreset = 0;
-	      #1nreset = 1;
-	       LoadData = 'h8988; 
-	       #100$finish;
+		#1 nreset =1 ;
+		#10000 $finish;
+		
+
 	end
-	always  @(negedge SCK)begin 
-		if(transmitter1.WordCounter < 2*WIDTH) $display(SerialData,"	",transmitter1.WordCounter);
-		else begin	LoadData = 'hFFFF;
-		end
-	end
+	always #1 MCLK = ~MCLK;
+
 endmodule

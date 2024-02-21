@@ -2,11 +2,16 @@
 // File created by:  xrun
 // Do not modify this file
 //
+-gui
+-INPUT
+1waves.tcl
+-INPUT
+restore.tcl
 -MESSAGES
 +EMGRLOG
 xrun.log
 -XLSTIME
-1707021705
+1707008295
 -XLKEEP
 -XLMODE
 ./xcelium.d/run.lnx8664.23.09.d
@@ -20,4 +25,4 @@ xrun
 -XLVERSION
 "TOOL:	xrun(64)	23.09-s003"
 -XLNAME
-./xcelium.d/run.lnx8664.23.09.d/microeletronica_d74279d2-804f-4e54-8046-9ab2818e6c79
+./xcelium.d/run.lnx8664.23.09.d/microeletronica_e65d7ea6-1186-4fcf-bbe5-2b25df34db44

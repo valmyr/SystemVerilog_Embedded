@@ -3,3 +3,11 @@
 // Do not modify this file
 //
 tb.sv
+I2S.sv
+-gui
+-access
++rw
+-input
+1waves.tcl
+-input
+restore.tcl

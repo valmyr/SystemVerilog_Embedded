@@ -2,11 +2,16 @@
 // File created by:  xrun
 // Do not modify this file
 //
+-gui
+-INPUT
+1waves.tcl
+-INPUT
+restore.tcl
 -MESSAGES
 +EMGRLOG
 xrun.log
 -XLSTIME
-1707021705
+1707008295
 -XLKEEP
 -XLMODE
 ./xcelium.d/run.lnx8664.23.09.d
