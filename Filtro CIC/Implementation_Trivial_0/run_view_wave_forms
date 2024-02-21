@@ -1,0 +1,5 @@
+cds
+#!/bin/csh
+
+xrun test_filter.sv -gui -access +rw -input waves.tcl
+

@@ -1,0 +1,7 @@
+cds
+#!/bin/csh
+
+xrun testbench.sv -gui -access +rw -input waves.tcl -input restore.tcl
+
+
+

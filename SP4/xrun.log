@@ -1,0 +1,66 @@
+xrun(64): 23.09-s003: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.09-s003: Started on Feb 14, 2024 at 21:24:50 -03
+xrun
+	tb.sv
+	SPDIF_Transmitter.sv
+	-gui
+	-access +rw
+	-input waves.tcl
+file: tb.sv
+	module worklib.tb:sv
+		errors: 0, warnings: 0
+file: SPDIF_Transmitter.sv
+	module worklib.SPDIF_Transmitter:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		tb
+	SPDIF_Transmitter #(.WIDTH(WIDTH))SPDIF_U1(.*);
+	                                         |
+xmelab: *W,CUVDSO (./tb.sv,10|42): 1 output port was not connected by dot-star:
+xmelab: (./SPDIF_Transmitter.sv,5): SerialDataCurrent
+
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.tb:sv <0x22b7cf41>
+			streams:   6, words:  2757
+		worklib.SPDIF_Transmitter:sv <0x7ccdf181>
+			streams:   5, words:  1470
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		             Instances  Unique
+		Modules:             2       2
+		Registers:           8       8
+		Scalar wires:        3       -
+		Vectored wires:      1       -
+		Always blocks:       5       5
+		Initial blocks:      1       1
+		Cont. assignments:   1       1
+		Pseudo assignments:  3       -
+		Process Clocks:      2       2
+	Writing initial simulation snapshot: worklib.tb:sv
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /Tools/cadence/XCELIUM2309/tools/xcelium/files/xmsimrc
+xcelium> base -open waves -into waves.shm -default
+xmsim: *E,TCLERR: invalid command name "base".
+xcelium> probe -create -shm SPDIF_U1.*
+xmsim: *SE,DBOBBD: Cannot create SHM probe for tb.SPDIF_U1.WIDTH.
+Created default SHM database xcelium.shm
+Created probe 1
+xcelium> 
+xcelium> 
+xcelium> simvision -input simvision.svcf
+xcelium> 
+xcelium> reset
+Loaded snapshot worklib.tb:sv
+xcelium> run
+Simulation complete via $finish(1) at time 500 NS + 0
+./tb.sv:20 		# 500 $finish;
+xcelium> 
+xcelium> TOOL:	xrun(64)	23.09-s003: Exiting on Feb 21, 2024 at 16:01:56 -03  (total: 162:37:06)

@@ -1,0 +1,5 @@
+//
+// File created by:  xrun
+// Do not modify this file
+
+s1::(14Feb2024:21:24:51):( xrun tb.sv SPDIF_Transmitter.sv -gui -access +rw -input waves.tcl )

@@ -1,0 +1,70 @@
+xrun(64): 23.09-s003: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.09-s003: Started on Feb 08, 2024 at 19:34:27 -03
+xrun
+	tb.sv
+	SPDIF_Transmitter.sv
+	-gui
+	-access +rw
+	-input waves.tcl
+	-input restore.tcl
+Recompiling... reason: file './tb.sv' is newer than expected.
+	expected: Thu Feb  8 01:10:35 2024
+	actual:   Thu Feb  8 19:34:25 2024
+file: tb.sv
+	module worklib.tb:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		tb
+	SPDIF_Transmitter #(.WIDTH(WIDTH))SPDIF_U1(.*);
+	                                            |
+xmelab: *W,CUVMPW (./tb.sv,7|45): port sizes differ in port connection(2/1) for the instance(tb)  for child port:  SerialData.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.SPDIF_Transmitter:sv <0x3193d2ef>
+			streams:   3, words:   891
+		worklib.tb:sv <0x6e84a47a>
+			streams:   6, words:  2403
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		             Instances  Unique
+		Modules:             2       2
+		Registers:           7       7
+		Scalar wires:        4       -
+		Vectored wires:      1       -
+		Always blocks:       3       3
+		Initial blocks:      1       1
+		Pseudo assignments:  4       -
+		Process Clocks:      1       1
+	Writing initial simulation snapshot: worklib.tb:sv
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+xmsim: *E,IONOEN: file does not exist, restore.tcl.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /Tools/cadence/XCELIUM2309/tools/xcelium/files/xmsimrc
+xcelium> base -open waves -into waves.shm -default
+xmsim: *E,TCLERR: invalid command name "base".
+xcelium> probe -create -shm SPDIF_U1.clock -waveform
+Created default SHM database xcelium.shm
+Created probe 1
+xcelium> probe -create -shm SPDIF_U1.SD_internal -waveform
+Created probe 2
+xcelium> probe -create -shm SPDIF_U1.SerialData -waveform
+Created probe 3
+xcelium> probe -create -shm SPDIF_U1.Tx -waveform
+Created probe 4
+xcelium> probe -create -shm SPDIF_U1.CounterWord -waveform
+Created probe 5
+xcelium> reset
+Loaded snapshot worklib.tb:sv
+xcelium> run
+Simulation complete via $finish(1) at time 31 NS + 0
+./tb.sv:18 		# 30 $finish;
+xcelium> 
+xcelium> ^C
+xcelium> exit
+TOOL:	xrun(64)	23.09-s003: Exiting on Feb 08, 2024 at 19:35:45 -03  (total: 00:01:18)

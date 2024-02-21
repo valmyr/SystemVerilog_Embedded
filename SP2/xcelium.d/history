@@ -1,0 +1,9 @@
+//
+// File created by:  xrun
+// Do not modify this file
+
+s1::(06Feb2024:21:11:01):( xrun testbench.sv waves_generator.sv -gui -access +rw -input waves.tcl -input restore.tcl )
+s2::(06Feb2024:21:15:34):( xrun testbench.sv waves_generator.sv -gui -access +rw -input waves.tcl -input restore.tcl )
+s3::(06Feb2024:21:17:12):( xrun testbench.sv waves_generator.sv -gui -access +rw -input waves.tcl -input restore.tcl )
+s4::(06Feb2024:21:26:14):( xrun testbench.sv waves_generator.sv -gui -access +rw -input waves.tcl -input restore.tcl )
+s5::(06Feb2024:21:26:57):( xrun testbench.sv waves_generator.sv -gui -access +rw -input waves.tcl -input restore.tcl )

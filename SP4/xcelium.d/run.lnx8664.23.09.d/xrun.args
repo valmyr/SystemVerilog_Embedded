@@ -1,0 +1,11 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+tb.sv
+SPDIF_Transmitter.sv
+-gui
+-access
++rw
+-input
+waves.tcl

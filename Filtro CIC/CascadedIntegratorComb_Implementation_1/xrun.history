@@ -1,0 +1,86 @@
+s1(29Dec2023:18:30:05):  xrun filtro_em_cascata.sv 
+s2(29Dec2023:18:34:02):  xrun test_filter.sv 
+s3(29Dec2023:18:34:15):  xrun test_filter.sv 
+s4(29Dec2023:19:43:26):  xrun test_filter.sv -gui -access +rw -input waves.tcl 
+s5(29Dec2023:19:44:05):  xrun test_filter.sv 
+s6(29Dec2023:19:44:15):  xrun test_filter.sv 
+s7(29Dec2023:19:44:49):  xrun test_filter.sv 
+s8(29Dec2023:19:45:03):  xrun test_filter.sv 
+s9(29Dec2023:19:45:27):  xrun test_filter.sv 
+s10(29Dec2023:19:46:02):  xrun test_filter.sv 
+s11(29Dec2023:19:46:27):  xrun test_filter.sv 
+s12(29Dec2023:19:46:45):  xrun test_filter.sv 
+s13(29Dec2023:19:47:01):  xrun test_filter.sv 
+s14(29Dec2023:19:47:54):  xrun test_filter.sv 
+s15(29Dec2023:19:48:48):  xrun test_filter.sv 
+s16(29Dec2023:19:49:09):  xrun test_filter.sv 
+s17(29Dec2023:19:50:00):  xrun test_filter.sv 
+s18(29Dec2023:19:50:38):  xrun test_filter.sv 
+s19(29Dec2023:19:51:12):  xrun test_filter.sv 
+s20(29Dec2023:19:52:34):  xrun test_filter.sv 
+s21(29Dec2023:19:54:59):  xrun test_filter.sv -gui -access +rw -input waves.tcl 
+s22(29Dec2023:19:55:26):  xrun test_filter.sv 
+s23(29Dec2023:20:01:01):  xrun test_filter.sv 
+s24(29Dec2023:23:04:56):  xrun test_filter.sv 
+s25(29Dec2023:23:22:31):  xrun test_filter.sv 
+s26(29Dec2023:23:23:18):  xrun test_filter.sv 
+s27(29Dec2023:23:24:10):  xrun test_filter.sv 
+s28(29Dec2023:23:24:54):  xrun test_filter.sv 
+s29(29Dec2023:23:25:37):  xrun test_filter.sv 
+s30(29Dec2023:23:26:10):  xrun test_filter.sv 
+s31(29Dec2023:23:26:45):  xrun test_filter.sv 
+s32(29Dec2023:23:27:32):  xrun test_filter.sv 
+s33(29Dec2023:23:27:47):  xrun test_filter.sv 
+s34(29Dec2023:23:28:08):  xrun test_filter.sv 
+s35(29Dec2023:23:28:33):  xrun test_filter.sv 
+s36(29Dec2023:23:29:12):  xrun test_filter.sv 
+s37(29Dec2023:23:31:45):  xrun test_filter.sv 
+s38(29Dec2023:23:33:27):  xrun test_filter.sv 
+s39(29Dec2023:23:33:39):  xrun test_filter.sv 
+s40(29Dec2023:23:34:02):  xrun test_filter.sv 
+s41(29Dec2023:23:37:21):  xrun test_filter.sv -gui -access +rw -input waves.tcl 
+s42(29Dec2023:23:39:08):  xrun test_filter.sv 
+s43(29Dec2023:23:39:30):  xrun test_filter.sv 
+s44(29Dec2023:23:39:58):  xrun test_filter.sv 
+s45(29Dec2023:23:52:22):  xrun test_filter.sv -gui -access +rw -input waves.tcl 
+s46(30Dec2023:00:01:28):  xrun test_filter.sv 
+s47(30Dec2023:00:07:56):  xrun test_filter.sv -gui -access +rw -input waves.tcl 
+s48(30Dec2023:00:11:41):  xrun test_filter.sv 
+s49(30Dec2023:00:11:45):  xrun test_filter.sv -gui -access +rw -input waves.tcl 
+s50(30Dec2023:00:16:37):  xrun test_filter.sv -gui -access +rw -input waves.tcl 
+s51(30Dec2023:00:17:01):  xrun test_filter.sv 
+s52(30Dec2023:00:17:33):  xrun test_filter.sv 
+s53(30Dec2023:00:17:54):  xrun test_filter.sv 
+s54(30Dec2023:00:18:16):  xrun test_filter.sv 
+s55(30Dec2023:00:20:50):  xrun test_filter.sv 
+s56(30Dec2023:00:21:29):  xrun test_filter.sv 
+s57(30Dec2023:00:22:29):  xrun test_filter.sv 
+s58(30Dec2023:00:23:20):  xrun test_filter.sv 
+s59(30Dec2023:00:23:46):  xrun test_filter.sv 
+s60(31Dec2023:18:35:32):  xrun test_filter.sv 
+s61(31Dec2023:18:36:01):  xrun test_filter.sv 
+s62(31Dec2023:18:36:57):  xrun test_filter.sv 
+s63(31Dec2023:18:37:08):  xrun test_filter.sv 
+s64(31Dec2023:18:46:11):  xrun test_filter.sv 
+s65(31Dec2023:18:46:21):  xrun test_filter.sv 
+s66(31Dec2023:18:48:15):  xrun test_filter.sv 
+s67(31Dec2023:18:48:40):  xrun test_filter.sv 
+s68(31Dec2023:18:50:27):  xrun test_filter.sv 
+s69(31Dec2023:18:51:33):  xrun test_filter.sv 
+s70(31Dec2023:18:52:06):  xrun test_filter.sv 
+s71(31Dec2023:18:52:54):  xrun test_filter.sv 
+s72(03Jan2024:10:31:01):  xrun test_filter.sv 
+s73(03Jan2024:10:31:45):  xrun filtro_em_cascata.sv 
+s74(05Jan2024:12:32:57):  xrun test_filter.sv 
+s75(05Jan2024:13:23:02):  xrun test_filter.sv 
+s76(05Jan2024:13:23:15):  xrun test_filter.sv 
+s77(05Jan2024:13:23:30):  xrun test_filter.sv 
+s78(05Jan2024:13:23:49):  xrun test_filter.sv -gui -access +rw -input waves.tcl 
+s79(05Jan2024:13:25:07):  xrun test_filter.sv -gui -access +rw -input waves.tcl 
+s80(05Jan2024:13:26:29):  xrun test_filter.sv -gui -access +rw -input waves.tcl 
+s81(05Jan2024:13:29:41):  xrun test_filter.sv -gui -access +rw -input waves.tcl 
+s82(26Jan2024:14:02:52):  xrun test_filter.sv 
+s83(26Jan2024:14:03:26):  xrun test_filter.sv 
+s84(26Jan2024:14:05:11):  xrun test_filter.sv 
+s85(26Jan2024:14:05:47):  xrun test_filter.sv 
+s86(26Jan2024:14:06:35):  xrun test_filter.sv 

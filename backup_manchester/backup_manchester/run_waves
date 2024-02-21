@@ -1,0 +1,5 @@
+#!/bin/csh
+xrun tb.sv SPDIF_Transmitter.sv -gui -access +rw -input waves.tcl -input restore.tcl
+
+
+

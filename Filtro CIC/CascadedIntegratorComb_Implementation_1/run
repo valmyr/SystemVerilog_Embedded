@@ -1,0 +1,4 @@
+#!/bin/csh
+
+xrun test_filter.sv
+

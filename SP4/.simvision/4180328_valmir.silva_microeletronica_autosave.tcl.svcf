@@ -1,0 +1,97 @@
+
+#
+# Preferences
+#
+preferences set toolbar-Standard-WatchWindow {
+  usual
+  shown 0
+}
+preferences set script-input-warning 0
+preferences set savedlg-dbnames save
+preferences set plugin-enable-svdatabrowser-new 1
+preferences set toolbar-Windows-WatchWindow {
+  usual
+  shown 0
+}
+preferences set savedlg-cursors 1
+preferences set plugin-enable-groupscope 0
+preferences set plugin-enable-interleaveandcompare 0
+preferences set plugin-enable-waveformfrequencyplot 0
+preferences set toolbar-SimControl-WatchWindow {
+  usual
+  shown 0
+}
+preferences set savedlg-simulator ppe
+preferences set toolbar-TimeSearch-WatchWindow {
+  usual
+  shown 0
+}
+
+#
+# Mnemonic Maps
+#
+mmap new  -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1366x654+0+27}] != ""} {
+    window geometry "Waveform 1" 1366x654+0+27
+}
+window target "Waveform 1" on
+waveform using {Waveform 1}
+waveform sidebar visibility partial
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 175 \
+    -units ns \
+    -valuewidth 75
+waveform baseline set -time 0
+
+set id [waveform add -signals  {
+	xcelium::tb.SPDIF_U1.clock
+	} ]
+set id [waveform add -signals  {
+	xcelium::tb.SPDIF_U1.nreset
+	} ]
+set id [waveform add -signals  {
+	{xcelium::tb.SPDIF_U1.CounterBit[4:0]}
+	} ]
+set id [waveform add -signals  {
+	{xcelium::tb.SPDIF_U1.Tx[0:10]}
+	} ]
+waveform format $id -radix %b -color #ffff00
+set id [waveform add -signals  {
+	xcelium::tb.SPDIF_U1.txBit_n0
+	} ]
+waveform format $id -color #00ff99
+set id [waveform add -signals  {
+	xcelium::tb.SPDIF_U1.SerialDataFirst
+	} ]
+waveform format $id -color #0099ff
+set id [waveform add -signals  {
+	xcelium::tb.SPDIF_U1.SerialDataCurrent
+	} ]
+waveform format $id -color #ffffff -bgcolor #000000
+
+waveform xview limits 0 235ns
+
+#
+# Waveform Window Links
+#
+
+#
+# Console windows
+#
+console set -windowname Console
+window geometry Console 730x250+261+564
+
+#
+# Layout selection
+#

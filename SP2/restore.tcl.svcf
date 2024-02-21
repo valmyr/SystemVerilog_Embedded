@@ -1,0 +1,114 @@
+# SimVision Command Script (Wed Jan 24 23:30:12 -03 2024)
+#
+# Version 23.09.s003
+#
+# You can restore this configuration with:
+#
+#      xrun testbench.sv waves_generator.sv -access +rw -input waves.tcl -input restore.tcl
+#
+
+
+#
+# Preferences
+#
+preferences set toolbar-Standard-WatchWindow {
+  usual
+  shown 0
+}
+preferences set plugin-enable-svdatabrowser-new 1
+preferences set toolbar-Windows-WatchWindow {
+  usual
+  shown 0
+}
+preferences set plugin-enable-groupscope 0
+preferences set plugin-enable-interleaveandcompare 0
+preferences set plugin-enable-waveformfrequencyplot 0
+preferences set toolbar-SimControl-WatchWindow {
+  usual
+  shown 0
+}
+preferences set toolbar-TimeSearch-WatchWindow {
+  usual
+  shown 0
+}
+
+#
+# Simulator
+#
+database require simulator -hints {
+	simulator "xrun testbench.sv waves_generator.sv -gui -access +rw -input waves.tcl -input restore.tcl"
+}
+
+#
+# Mnemonic Maps
+#
+mmap new  -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1366x654+0+27}] != ""} {
+    window geometry "Waveform 1" 1366x654+0+27
+}
+window target "Waveform 1" on
+waveform using {Waveform 1}
+waveform sidebar visibility partial
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 175 \
+    -units ns \
+    -valuewidth 75
+waveform baseline set -time 0
+
+set id [waveform add -signals  {
+	simulator::tb.gen_waves.clock
+	} ]
+set id [waveform add -signals  {
+	simulator::tb.gen_waves.nreset
+	} ]
+set id [waveform add -signals  {
+	simulator::tb.gen_waves.type_wave
+	} ]
+set id [waveform add -signals  {
+	{simulator::tb.gen_waves.inp_freq[3:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::tb.gen_waves.wave_out[15:0]}
+	} ]
+waveform format $id -height 180 -trace analogSampleAndHold
+waveform axis range $id -for default -min -127 -max 127 -scale linear
+set id [waveform add -signals  {
+	{simulator::tb.gen_waves.counter[6:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::tb.gen_waves.sin_mem[99:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::tb.gen_waves.sawtooth_mem[99:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::tb.gen_waves.clock_fgen
+	} ]
+
+waveform xview limits 0 16000ns
+
+#
+# Waveform Window Links
+#
+
+#
+# Console windows
+#
+console set -windowname Console
+window geometry Console 1366x720+261+564
+
+#
+# Layout selection
+#
+

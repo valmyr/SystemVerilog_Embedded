@@ -1,0 +1,1 @@
+xrun tb.sv I2S.sv -access +rw -input waves.tcl 

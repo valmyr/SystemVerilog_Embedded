@@ -1,0 +1,13 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+testbench.sv
+waves_generator.sv
+-gui
+-access
++rw
+-input
+waves.tcl
+-input
+restore.tcl

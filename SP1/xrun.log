@@ -1,0 +1,11 @@
+xrun(64): 23.09-s003: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.09-s003: Started on Feb 06, 2024 at 22:45:33 -03
+xrun
+	testbench.sv
+	-gui
+	-access +rw
+	-input waves.tcl
+	-input restore.tcl
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+xmsim: *E,STRPIN: Could not initialize SimVision connection: SimVision/Verisium Debug process terminated before a connection was established.
+TOOL:	xrun(64)	23.09-s003: Exiting on Feb 06, 2024 at 22:45:35 -03  (total: 00:00:02)

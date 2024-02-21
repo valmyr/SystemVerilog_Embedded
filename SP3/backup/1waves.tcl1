@@ -1,0 +1,6 @@
+base -open waves -into waves.shm -defaultm
+probe -create -shm tb.U1.transmitterU1.*
+probe -create -shm tb.U1.*
+reset
+run
+

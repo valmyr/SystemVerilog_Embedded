@@ -1,0 +1,3 @@
+#!/bin/csh
+python3 serra.py
+xrun testbench.sv waves_generator.sv -gui -access +rw -input waves.tcl -input restore.tcl  
