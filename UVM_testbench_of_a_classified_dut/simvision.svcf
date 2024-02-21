@@ -1,0 +1,167 @@
+# SimVision Command Script (Wed Dec 13 17:05:16 -03 2023)
+#
+# Version 23.09.s001
+#
+# You can restore this configuration with:
+#
+#     simvision -input simvision.svcf
+#  or simvision -input simvision.svcf database1 database2 ...
+#
+
+
+#
+# Preferences
+#
+preferences set toolbar-Standard-WatchWindow {
+  usual
+  shown 0
+}
+preferences set toolbar-SimControl-WatchList {
+  usual
+  position -anchor e
+}
+preferences set expand-attributes begin_time
+preferences set plugin-enable-svdatabrowser-new 1
+preferences set toolbar-Windows-WatchWindow {
+  usual
+  shown 0
+}
+preferences set plugin-enable-groupscope 0
+preferences set plugin-enable-interleaveandcompare 0
+preferences set plugin-enable-waveformfrequencyplot 0
+preferences set toolbar-SimControl-WatchWindow {
+  usual
+  shown 0
+}
+preferences set toolbar-Windows-WatchList {
+  usual
+  position -pos 2
+}
+preferences set toolbar-Uvm-Console {
+  usual
+  position -pos 2
+}
+preferences set toolbar-TimeSearch-WatchWindow {
+  usual
+  shown 0
+}
+
+#
+# Databases
+#
+array set dbNames ""
+set dbNames(realName1) [ database require waves -hints {
+	file ./waves.shm/waves.trn
+	file /home/valmir.silva/Templates/NeW/UVM_steps/work/waves.shm/waves.trn
+}]
+if {$dbNames(realName1) == ""} {
+    set dbNames(realName1) waves
+}
+
+#
+# Conditions
+#
+set expression {$uvm:{uvm_test_top.env_h.refmod_h}.tr_out.a3[31:0]}
+if {[catch {condition new -name  {} -expr $expression}] != ""} {
+    condition set -using {} -expr $expression
+}
+
+#
+# Mnemonic Maps
+#
+mmap new  -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1366x596+0+31}] != ""} {
+    window geometry "Waveform 1" 1366x596+0+31
+}
+window target "Waveform 1" on
+waveform using {Waveform 1}
+waveform sidebar select designbrowser
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 175 \
+    -units ns \
+    -valuewidth 75
+waveform baseline set -time 0
+
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {$uvm:{uvm_test_top.env_h.agent_in_h.sequencer_h}.seq}]}
+	} ]]
+waveform hierarchy set -expandtype Attr:begin_time $id
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {$uvm:{uvm_test_top.env_h.agent_in_h.monitor_h}.tr}]}
+	} ]]
+waveform hierarchy set -expandtype Attr:begin_time $id
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {top.in.clock}]}
+	} ]]
+waveform hierarchy set -expandtype Attr:begin_time $id
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {top.in.reset}]}
+	} ]]
+waveform hierarchy set -expandtype Attr:begin_time $id
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {top.in.valid}]}
+	} ]]
+waveform hierarchy set -expandtype Attr:begin_time $id
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {top.in.a[7:0]}]}
+	} ]]
+waveform format $id -radix %d
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {top.out.valid}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {top.out.a[7:0]}]}
+	} ]]
+waveform format $id -radix %d
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {$uvm:{uvm_test_top.env_h.agent_out_h.monitor_h}.tr}]}
+	} ]]
+waveform hierarchy set -expandtype Attr:begin_time $id
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {Transactions.tr_out.a[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {Transactions.tr_out.a1[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {Transactions.tr_out.a2[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {Transactions.tr_out.a3[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {Transactions.tr_out.a4[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {Transactions.tr_out.a5[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {Transactions.tr_out.a6[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{$dbNames(realName1)::[format {Transactions.tr_out.a7[31:0]}]}
+	} ]]
+
+waveform xview limits 0 125ns
+
+#
+# Waveform Window Links
+#
+
+#
+# Console windows
+#
+console set -windowname Console
+window geometry Console 600x250+0+31
+
